@@ -1,5 +1,26 @@
 #Your code goes here
 
+##  **Statement of Requirements**
+
+# **FUNCTIONAL REQUIREMENTS**
+# 1. The program will only accept coins of value : 50p, 20p, 10p and 5p.
+# 2. The price of a coffee will be fixed to 75p.
+# 3. It will follow a simple addition method for the total inputed from the user
+# 4. It will caulculate the change through subtraction of inputed amount and price of coffee.
+
+# **NON-FUNCTIONAL REQUIREMENTS**
+# 1. The program will only accept integer values.
+# 2. The program will display correct messages incase of ivalid entry.
+
+# **RELIABILTY REQUIREMENTS**
+# 1. The program must be able to handle invalid string inputs without crashing.
+
+
+
+
+
+
+
 total_inserted = 0
 
 
@@ -18,7 +39,13 @@ def customer_input():
     global total_inserted
 
     while total_inserted < 75:
-        coins = int(input("Insert Coins: "))
+        coins = input("Insert Coins: ")
+        try:
+            coins = int(coins)
+        except ValueError:
+            print("Invalid input. Please insert integer values only.")
+            continue
+
 
         if coins in [50, 20, 10, 5]:
             total_inserted += coins
