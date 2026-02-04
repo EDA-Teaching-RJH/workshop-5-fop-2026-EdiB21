@@ -52,7 +52,7 @@ def customer_input():
             print("Invalid input. Please insert integer values only.")
             continue
 
-        
+
         if coins in [50, 20, 10, 5]:
             update_total(coins)
             if total_inserted >= 75:
@@ -79,6 +79,9 @@ def output_dispense():
         change  = total_inserted - 75
         print("-------------------------------------")
         print(f"Your change is : {change}p")
+        print(calculate_change_smart(change))
+
+
         print("Enjoy your coffee!")
         print("-------------------------------------")
 
@@ -87,6 +90,20 @@ def output_dispense():
         print("No change to return.")
         print("Enjoy your coffee!")
         print("-------------------------------------")
+
+
+def calculate_change_smart(leftover):
+
+    global total_inserted
+
+    coins = [50, 20, 10, 5]
+    change_in_coins = []
+
+    for coin in coins:
+        while leftover >= coin:
+            leftover -= coin
+            change_in_coins.append(coin)
+
 
 
 main()
